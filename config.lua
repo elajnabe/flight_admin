@@ -1,6 +1,6 @@
 Config = {}
 
-Config.language = 'en'
+Config.language = 'en' -- Available Languages : en/de
 
 Config.openMenuKey = 'F3'
 Config.toggleNoclipKey = 'F11'
