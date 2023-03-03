@@ -35,13 +35,9 @@ function CreateGamepadMetatable(keyboard, gamepad)
   })
 end
 
-function Clamp(x, _min, _max)
-  return min(max(x, _min), _max)
-end
+function Clamp(x, _min, _max) return min(max(x, _min), _max) end
 
-function IsGamepadControl()
-  return not IsUsingKeyboard(2)
-end
+function IsGamepadControl() return not IsUsingKeyboard(2) end
 
 function GetSmartControlNormal(control)
   if type(control) == 'table' then

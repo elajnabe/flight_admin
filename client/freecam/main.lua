@@ -61,9 +61,7 @@ local function GetSpeedMultiplier()
 end
 
 local function UpdateCamera()
-	if not IsFreecamActive() or IsPauseMenuActive() then
-		return
-	end
+	if not IsFreecamActive() or IsPauseMenuActive() then return end
 
 	if not IsFreecamFrozen() then
 		local vecX, vecY = GetFreecamMatrix()
@@ -110,40 +108,24 @@ local function UpdateCamera()
 		rot = vector3(rotX, rotY, rotZ)
 
 		-- Update camera
-
-		if pos ~= GetFreecamPosition() then
-			SetFreecamPosition(pos)
-		end
-
+		if pos ~= GetFreecamPosition() then SetFreecamPosition(pos) end
 		SetFreecamRotation(rot)
 
 		return pos, rotZ
 	end
-
-	-- Trigger a tick event. Resources depending on the freecam position can
-	-- make use of this event.
-	-- TriggerEvent('freecam:onTick')
 end
 
 -------------------------------------------------------------------------------
 function StartFreecamThread()
-	-- Camera/Pos updating thread
 	CreateThread(function()
 		local ped = cache.ped
 		SetFreecamPosition(GetEntityCoords(ped))
 
 		local function updatePos(pos, rotZ)
 			if pos and DoesEntityExist(ped) then
-				-- Update ped
 				SetEntityCoords(ped, pos.x, pos.y, pos.z)
-
-				-- Update veh
 				local veh = cache.seat == -1 and cache.vehicle
-
-				if veh then
-					SetEntityCoords(veh, pos.x, pos.y, pos.z)
-				end
-
+				if veh then SetEntityCoords(veh, pos.x, pos.y, pos.z) end
 				SetEntityHeading(ped, rotZ)
 			end
 		end
@@ -162,7 +144,6 @@ function StartFreecamThread()
 			Wait(0)
 		end
 
-		-- One last time due to the optimization
 		updatePos(loopPos, loopRotZ)
 	end)
 
@@ -173,7 +154,6 @@ function StartFreecamThread()
 		EndTextCommandScaleformString()
 	end
 
-	--Scaleform drawing thread
 	CreateThread(function()
 		local scaleform = RequestScaleformMovie("instructional_buttons")
 		while not HasScaleformMovieLoaded(scaleform) do
@@ -234,9 +214,6 @@ function StartFreecamThread()
 	end)
 end
 
---------------------------------------------------------------------------------
-
--- When the resource is stopped, make sure to return the camera to the player.
 AddEventHandler('onResourceStop', function(name)
 	if name ~= RESOURCE_NAME then return end
 	SetFreecamActive(false)

@@ -10,7 +10,7 @@ local function checkVersion()
 	if not currentVersion then return print("^1Unable to determine current resource version for 'flight_admin' ^0") end
 
 	SetTimeout(200, function()
-		PerformHttpRequest('https://api.github.com/repos/dolutattoo/flight_admin/releases/latest', function(status, response)
+		PerformHttpRequest('https://api.github.com/repos/DevTheBully/flight_admin/releases/latest', function(status, response)
 			if status ~= 200 then return end
 
 			response = json.decode(response)

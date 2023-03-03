@@ -41,7 +41,6 @@ CreateThread(function()
             DisableControlAction(0, 30, true) -- Player Movement
             DisableControlAction(0, 31, true) -- Player Movement
 
-            -- Enabling a few input only while holding right click
             if IsDisabledControlPressed(0, 25) then
                 EnableControlAction(0, 1, true) -- Look Left/Right
                 EnableControlAction(0, 2, true) -- Look up/Down

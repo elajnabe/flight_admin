@@ -9,8 +9,6 @@ local INPUT_PARACHUTE_BRAKE_RIGHT = 153
 local INPUT_CELLPHONE_SCROLL_FORWARD = 180
 local INPUT_CELLPHONE_SCROLL_BACKWARD = 181
 
---------------------------------------------------------------------------------
-
 local BASE_CONTROL_MAPPING = protect({
   -- Rotation
   LOOK_X = INPUT_LOOK_LR,
@@ -26,8 +24,6 @@ local BASE_CONTROL_MAPPING = protect({
   MOVE_SLOW = INPUT_CELLPHONE_SCROLL_BACKWARD
 })
 
---------------------------------------------------------------------------------
-
 local BASE_CONTROL_SETTINGS = protect({
   -- Rotation
   LOOK_SENSITIVITY_X = 5,
@@ -36,8 +32,6 @@ local BASE_CONTROL_SETTINGS = protect({
   -- Position
   BASE_MOVE_MULTIPLIER = 1.0
 })
-
---------------------------------------------------------------------------------
 
 local BASE_CAMERA_SETTINGS = protect({
   --Camera
@@ -51,8 +45,6 @@ local BASE_CAMERA_SETTINGS = protect({
   KEEP_POSITION = false,
   KEEP_ROTATION = false
 })
-
---------------------------------------------------------------------------------
 
 _G.KEYBOARD_CONTROL_MAPPING = table.copy(BASE_CONTROL_MAPPING)
 _G.GAMEPAD_CONTROL_MAPPING = table.copy(BASE_CONTROL_MAPPING)
@@ -68,8 +60,6 @@ _G.GAMEPAD_CONTROL_MAPPING.MOVE_SLOW = INPUT_VEH_BRAKE
 protect(_G.KEYBOARD_CONTROL_MAPPING)
 protect(_G.GAMEPAD_CONTROL_MAPPING)
 
---------------------------------------------------------------------------------
-
 _G.KEYBOARD_CONTROL_SETTINGS = table.copy(BASE_CONTROL_SETTINGS)
 _G.GAMEPAD_CONTROL_SETTINGS = table.copy(BASE_CONTROL_SETTINGS)
 
@@ -80,12 +70,8 @@ _G.GAMEPAD_CONTROL_SETTINGS.LOOK_SENSITIVITY_Y = 2
 protect(_G.KEYBOARD_CONTROL_SETTINGS)
 protect(_G.GAMEPAD_CONTROL_SETTINGS)
 
---------------------------------------------------------------------------------
-
 _G.CAMERA_SETTINGS = table.copy(BASE_CAMERA_SETTINGS)
 protect(_G.CAMERA_SETTINGS)
-
---------------------------------------------------------------------------------
 
 -- Create some convenient variables.
 -- Allows us to access controls and config without a gamepad switch.

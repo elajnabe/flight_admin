@@ -24,3 +24,4 @@ Installation steps fo here
 ## Credits
 
 Admin menu is based of dolu_tool. Credits to dolu for the original menu.
+**We are not involved or affiliated with dolu.**
