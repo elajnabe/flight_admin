@@ -4,7 +4,10 @@ All in one Standalone admin menu with framework integration.
 
 ## Installation
 
-Installation steps fo here
+    - You can download the release version or build it urself.
+    - To build it:
+        - step 1: yarn
+        - step 2: yarn build
 
 ## Features
 
