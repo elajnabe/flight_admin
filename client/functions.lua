@@ -355,6 +355,7 @@ FUNC.changePed = function(model)
     local playerId = cache.playerId
     lib.requestModel(model)
     SetPlayerModel(playerId, model)
+    SetPedDefaultComponentVariation(PlayerPedId(), true)
     cache.ped = PlayerPedId()
 end
 
